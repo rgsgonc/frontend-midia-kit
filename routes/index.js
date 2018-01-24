@@ -2,14 +2,13 @@ var moment = require('moment');
 var express = require('express');
 var router = express.Router();
 
-router.get('/', function(req, res) {
-  global.db.findAll((e, docs) => {
+router.get('/', function(req, res) {  
+  global.db.findData((e, docs) => {
+    console.log(docs);
       if(e) { 
         return console.log(e); 
-      }else{
-        let info = JSON.parse(docs[0].dados);
-        res.render('index', { title: 'Lista de Clientes', docs: info });
       }
+      res.render('index', { title: 'Lista de Clientes', docs: docs });      
 
   })
 })

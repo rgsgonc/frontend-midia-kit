@@ -5,13 +5,20 @@
   </head>
   <body>
     <h1>teste</h1>
+
+    <%= docs[0].publicacoes[0].node.caption %>
+    <%= docs[0].publicacoes[3].node.caption %>
+
+
     <ul>
-     
-        <li> NOME: <%= docs.full_name %> </li>
-        <li>SEGUINDO: <%= docs.follows.count %></li>
-        <li>PUBLICACOES: <%= docs.media.count %></li>
-        
-     
-    </ul>
+      <% for(let publicacao of docs[0].publicacoes) { %>
+          
+          <li>
+              <%= publicacao.node.caption %>
+  
+          </li>
+        <% }%>
+      </ul>
   </body>
 </html>
+
