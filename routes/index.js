@@ -118,6 +118,12 @@ router.get('/', function(req, res) {
           totalDeCurtidas+=publicacoes[i].node.edge_media_preview_like.count;
         }
 
+        //Total de comentários
+        let totalDeComentarios = 0;
+        for (let i = 0; i < publicacoes.length; i ++) {
+          totalDeComentarios+=publicacoes[i].node.edge_media_to_comment.count;
+        }
+
         res.render('profile', 
         { 
           docs: docs,
@@ -126,7 +132,7 @@ router.get('/', function(req, res) {
           segObjetivos50Mil, objetivo50mil, seguidoresFaltantesObjetivo50Mil,
           segObjetivos100Mil, objetivo100mil, seguidoresFaltantesObjetivo100Mil,
           segObjetivos1m, objetivo1m, seguidoresFaltantesObjetivo1m,
-          postMaisComentado, postMaisCurtido, totalDeCurtidas
+          postMaisComentado, postMaisCurtido, totalDeCurtidas, totalDeComentarios
         });      
       }
 
