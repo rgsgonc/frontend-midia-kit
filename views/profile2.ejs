@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Mídia Kit - <%= docs[0].dados.full_name %></title>
+  <title>Mídia Kit - <%= docs.full_name %></title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
@@ -66,7 +66,7 @@
                   <li><!-- start message -->
                     <a href="#">
                       <div class="pull-left">
-                        <img src="<%= docs[0].dados.profile_pic_url_hd %>" class="img-circle" alt="User Image">
+                        <img src="<%=docs.profile_pic_url_hd%>" class="img-circle" alt="User Image">
                       </div>
                       <h4>
                         Support Team
@@ -248,16 +248,16 @@
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <img src="<%= docs[0].dados.profile_pic_url_hd %>" class="user-image" alt="User Image">
-              <span class="hidden-xs"><%= docs[0].dados.full_name %></span>
+              <img src="<%=docs.profile_pic_url_hd%>" class="user-image" alt="User Image">
+              <span class="hidden-xs"><%=docs.full_name%></span>
             </a>
             <ul class="dropdown-menu">
               <!-- User image -->
               <li class="user-header">
-                <img src="<%= docs[0].dados.profile_pic_url_hd %>" class="img-circle" alt="User Image">
+                <img src="<%=docs.profile_pic_url_hd%>" class="img-circle" alt="User Image">
 
                 <p>
-                  <%= docs[0].dados.full_name %> - Web Developer
+                  <%=docs.full_name%> - Web Developer
                   <small>Member since Nov. 2012</small>
                 </p>
               </li>
@@ -302,10 +302,10 @@
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<%= docs[0].dados.profile_pic_url_hd %>" class="img-circle" alt="User Image">
+          <img src="<%=docs.profile_pic_url_hd%>" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p><%= docs[0].dados.full_name %></p>
+          <p><%=docs.full_name%></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
@@ -519,25 +519,25 @@
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="<%= docs[0].dados.profile_pic_url_hd %>" alt="User profile picture">
+              <img class="profile-user-img img-responsive img-circle" src="<%=docs.profile_pic_url_hd%>" alt="User profile picture">
 
-              <h3 class="profile-username text-center"><%= docs[0].dados.full_name %></h3>
+              <h3 class="profile-username text-center"><%=docs.full_name%></h3>
 
               <p class="text-muted text-center"><%=docs.biography%></p>
 
               <ul class="list-group list-group-unbordered">
                 <li class="list-group-item">
-                  <b>Seguidores</b> <a class="pull-right"><%= docs[0].dados.followed_by.count %></a>
+                  <b>Seguidores</b> <a class="pull-right"><%= docs.followed_by.count %></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Seguindo</b> <a class="pull-right"> <%= docs[0].dados.follows.count %></a>
+                  <b>Seguindo</b> <a class="pull-right"> <%= docs.follows.count %></a>
                 </li>
                 <li class="list-group-item">
-                  <b>Publicações</b> <a class="pull-right"><%= docs[0].dados.media.count %></a>
+                  <b>Publicações</b> <a class="pull-right"><%= docs.media.count %></a>
                 </li>
               </ul>
 
-              <a href="http://instagram.com/<%=docs[0].dados.username%>" target="_blank" class="btn btn-primary btn-block"><b>Seguir</b></a>
+              <a href="http://instagram.com/<%=docs.username%>" target="_blank" class="btn btn-primary btn-block"><b>Seguir</b></a>
             </div>
             <!-- /.box-body -->
           </div>
@@ -560,12 +560,12 @@
 
               <strong><i class="fa fa-chrome" aria-hidden="true"></i> Site</strong>
 
-              <p class="text-muted"> <a href="<%=docs[0].dados.external_url%>" target="_blank" ><%=semSite%></p></a>
+              <p class="text-muted"> <a href="<%=docs.external_url%>" target="_blank" ><%=semSite%></p></a>
 
               <!-- <hr>
               <strong><i class="fa fa-pencil margin-r-5"></i> Foto mais curtida</strong>
               <p>
-                <img src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="Product Image">
+                <img src="<%=dados.imagem240x240[0]%>" alt="Product Image">
               </p> -->
               <hr>
 
@@ -598,27 +598,27 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="<%= docs[0].dados.profile_pic_url_hd %>" alt="user image">
+                    <img class="img-circle img-bordered-sm" src="<%=docs.profile_pic_url_hd%>" alt="user image">
                         <span class="username">
-                          <a href="#"><%= docs[0].dados.full_name %></a>
+                          <a href="#"><%=docs.full_name%></a>
                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                         </span>
-                    <span class="description">Publicado em - <%= docs[0].publicacoes[0].node.date %></span>
+                    <span class="description">Publicado em - <%=dados.dataComentarios[0]%></span>
                   </div>
                   <!-- /.user-block -->
                   <p>
-                    <%= docs[0].publicacoes[0].node.caption %>
+                    <%=dados.comentarios[0]%>
                   </p>
                   <div class="product-img">
-                      <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[0].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank" class="link-black text-sm"> 
-                        <img src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="Product Image">
+                      <a href="https://www.instagram.com/p/<%=dados.codePublicacao[0]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"> 
+                        <img src="<%=dados.imagem240x240[0]%>" alt="Product Image">
                       </a>
                     </div>
 
                   <ul class="list-inline">
-                    <li><a href="https://www.instagram.com/p/<%=docs[0].publicacoes[0].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
-                    
-                    
+                    <li><a href="https://www.instagram.com/p/<%=dados.codePublicacao[0]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Curtidas <%=dados.qtdCurtidas[0]%></a>
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comentários <%=dados.qtdComentarios[0]%></a></li>  
                     </li>
                     <!-- <li class="pull-right">
                       <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments (5)</a>
@@ -632,25 +632,26 @@
                 <!-- Post -->
                 <div class="post">
                     <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="<%= docs[0].dados.profile_pic_url_hd %>" alt="user image">
+                      <img class="img-circle img-bordered-sm" src="<%=docs.profile_pic_url_hd%>" alt="user image">
                           <span class="username">
-                            <a href="#"><%= docs[0].dados.full_name %></a>
+                            <a href="#"><%=docs.full_name%></a>
                             <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                           </span>
-                      <span class="description">Publicado em - <%= docs[0].publicacoes[1].node.date %></span>
+                      <span class="description">Publicado em - <%=dados.dataComentarios[1]%></span>
                     </div>
                     <!-- /.user-block -->
                     <p>
-                      <%= docs[0].publicacoes[1].node.caption %>
+                      <%=dados.comentarios[1]%>
                     </p>
                     <div class="product-img">
-                      <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[1].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank" class="link-black text-sm"> 
-                        <img src="<%= docs[0].publicacoes[1].node.thumbnail_resources[1].src %>" alt="Product Image">
+                      <a href="https://www.instagram.com/p/<%=dados.codePublicacao[1]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"> 
+                        <img src="<%=dados.imagem240x240[1]%>" alt="Product Image">
                       </a>
                     </div>
                     <ul class="list-inline">
-                      <li><a href="https://www.instagram.com/p/<%= docs[0].publicacoes[1].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
-                      <!-- AQUI EH AS CURTIDAS E COMENTARIOS QUE TA NO OUTRO ARQUIVO -->
+                      <li><a href="https://www.instagram.com/p/<%=dados.codePublicacao[1]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
+                      <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Curtidas <%=dados.qtdCurtidas[1]%></a>
+                      <li><a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comentários <%=dados.qtdComentarios[1]%></a></li>  
                       </li>
                       <!-- <li class="pull-right">
                         <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments (5)</a>
@@ -664,25 +665,26 @@
                   <!-- Post -->
                 <div class="post">
                     <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="<%= docs[0].dados.profile_pic_url_hd %>" alt="user image">
+                      <img class="img-circle img-bordered-sm" src="<%=docs.profile_pic_url_hd%>" alt="user image">
                           <span class="username">
-                            <a href="#"><%= docs[0].dados.full_name %></a>
+                            <a href="#"><%=docs.full_name%></a>
                             <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                           </span>
-                      <span class="description">Publicado em - <%= docs[0].publicacoes[2].node.date %></span>
+                      <span class="description">Publicado em - <%=dados.dataComentarios[2]%></span>
                     </div>
                     <!-- /.user-block -->
                     <p>
-                      <%= docs[0].publicacoes[2].node.caption %>
+                      <%=dados.comentarios[2]%>
                     </p>
                     <div class="product-img">
-                      <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[2].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank" class="link-black text-sm"> 
-                        <img src="<%= docs[0].publicacoes[2].node.thumbnail_resources[1].src %>" alt="Product Image">
+                      <a href="https://www.instagram.com/p/<%=dados.codePublicacao[2]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"> 
+                        <img src="<%=dados.imagem240x240[2]%>" alt="Product Image">
                       </a>
                     </div>
                     <ul class="list-inline">
-                      <li><a href="https://www.instagram.com/p/<%= docs[0].publicacoes[2].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
-                      
+                      <li><a href="https://www.instagram.com/p/<%=dados.codePublicacao[2]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
+                      <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Curtidas <%=dados.qtdCurtidas[2]%></a>
+                      <li><a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comentários <%=dados.qtdComentarios[2]%></a></li>  
                       </li>
                       <!-- <li class="pull-right">
                         <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments (5)</a>
@@ -696,25 +698,26 @@
                   <!-- Post -->
                 <div class="post">
                     <div class="user-block">
-                      <img class="img-circle img-bordered-sm" src="<%= docs[0].dados.profile_pic_url_hd %>" alt="user image">
+                      <img class="img-circle img-bordered-sm" src="<%=docs.profile_pic_url_hd%>" alt="user image">
                           <span class="username">
-                            <a href="#"><%= docs[0].dados.full_name %></a>
+                            <a href="#"><%=docs.full_name%></a>
                             <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                           </span>
-                      <span class="description">Publicado em - <%= docs[0].publicacoes[3].node.date %></span>
+                      <span class="description">Publicado em - <%=dados.dataComentarios[3]%></span>
                     </div>
                     <!-- /.user-block -->
                     <p>
-                      <%= docs[0].publicacoes[3].node.caption %>
+                      <%=dados.comentarios[3]%>
                     </p>
                     <div class="product-img">
-                      <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[3].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank" class="link-black text-sm"> 
-                        <img src="<%= docs[0].publicacoes[3].node.thumbnail_resources[1].src %>" alt="Product Image">
+                      <a href="https://www.instagram.com/p/<%=dados.codePublicacao[3]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"> 
+                        <img src="<%=dados.imagem240x240[3]%>" alt="Product Image">
                       </a>
                     </div>
                     <ul class="list-inline">
-                      <li><a href="https://www.instagram.com/p/<%= docs[0].publicacoes[3].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
-                      
+                      <li><a href="https://www.instagram.com/p/<%=dados.codePublicacao[3]%>/?taken-by=<%=docs.username%>" target="_blank" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Ver Publicação</a></li>
+                      <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Curtidas <%=dados.qtdCurtidas[3]%></a>
+                      <li><a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comentários <%=dados.qtdComentarios[3]%></a></li>  
                       </li>
                       <!-- <li class="pull-right">
                         <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments (5)</a>
@@ -730,9 +733,9 @@
                 <!-- Post -->
                 <div class="post">
                   <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="<%= docs[0].dados.profile_pic_url_hd %>" alt="">
+                    <img class="img-circle img-bordered-sm" src="<%=docs.profile_pic_url_hd%>" alt="">
                         <span class="username">
-                          <a href="#"><%= docs[0].dados.full_name %></a>
+                          <a href="#"><%=docs.full_name%></a>
                           <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
                         </span>
                     <span class="description">Últimas Publicações</span>
@@ -740,28 +743,28 @@
                   <!-- /.user-block -->
                   <div class="row margin-bottom">
                     <div class="col-sm-6">
-                        <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[0].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank"><img class="img-responsive" src="<%= docs[0].publicacoes[0].node.thumbnail_src %>" alt="Photo"></a>
+                        <a href="https://www.instagram.com/p/<%=dados.codePublicacao[0]%>/?taken-by=<%=docs.username%>" target="_blank"><img class="img-responsive" src="<%=dados.lastFivePosts[0]%>" alt="Photo"></a>
                     </div>
                     <!-- /.col -->
                     <div class="col-sm-6">
                       <div class="row">
                         <div class="col-sm-6">
-                            <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[1].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank">
-                              <img class="img-responsive" src="<%= docs[0].publicacoes[1].node.thumbnail_src %>" alt="Photo">
+                            <a href="https://www.instagram.com/p/<%=dados.codePublicacao[1]%>/?taken-by=<%=docs.username%>" target="_blank">
+                              <img class="img-responsive" src="<%=dados.lastFivePosts[1]%>" alt="Photo">
                             </a>
                           <br>
-                          <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[2].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank">
-                            <img class="img-responsive" src="<%= docs[0].publicacoes[2].node.thumbnail_src %>" alt="Photo">
+                          <a href="https://www.instagram.com/p/<%=dados.codePublicacao[2]%>/?taken-by=<%=docs.username%>" target="_blank">
+                            <img class="img-responsive" src="<%=dados.lastFivePosts[2]%>" alt="Photo">
                           </a>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
-                            <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[3].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank">
-                              <img class="img-responsive" src="<%= docs[0].publicacoes[3].node.thumbnail_src %>" alt="Photo">
+                            <a href="https://www.instagram.com/p/<%=dados.codePublicacao[3]%>/?taken-by=<%=docs.username%>" target="_blank">
+                              <img class="img-responsive" src="<%=dados.lastFivePosts[3]%>" alt="Photo">
                             </a>
                           <br>
-                          <a href="https://www.instagram.com/p/<%= docs[0].publicacoes[4].node.code %>/?taken-by=<%= docs[0].dados.username %>" target="_blank">
-                            <img class="img-responsive" src="<%= docs[0].publicacoes[4].node.thumbnail_src %>" alt="Photo">
+                          <a href="https://www.instagram.com/p/<%=dados.codePublicacao[4]%>/?taken-by=<%=docs.username%>" target="_blank">
+                            <img class="img-responsive" src="<%=dados.lastFivePosts[4]%>" alt="Photo">
                           </a>
                         </div>
                         <!-- /.col -->
@@ -774,7 +777,8 @@
 
                   <ul class="list-inline">
                     <!-- <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li> -->
-                    
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Curtidas nas 5 últimas fotos (<%=dados.qtdCurtidasUltimas5Fotos%>)</a></li>
+                    <li><a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comentários nas 5 últimas fotos (<%=dados.qtdComentarioUltimas5Fotos%>) </a></li>
                   </ul>
                   <!-- <input class="form-control input-sm" type="text" placeholder="Type a comment"> -->
                 </div>
@@ -787,7 +791,7 @@
                   <!-- PUBLICAÇÃO 1 -->
                   <li class="time-label">
                         <span class="bg-red">
-                            <%= docs[0].publicacoes[0].node.date %>
+                            <%=dados.dataComentarios[0]%>
                         </span>
                   </li>
                   <li>
@@ -795,12 +799,12 @@
                     <li>
                         <i class="fa fa-camera bg-purple"></i>
                           <div class="timeline-item">
-                            <span class="time"><i class="fa fa-clock-o"></i><%= docs[0].publicacoes[0].node.date %></span>
+                            <span class="time"><i class="fa fa-clock-o"></i><%=dados.dataComentarios[0]%></span>
                               <h3 class="timeline-header">
-                                  <a href="#"><%= docs[0].dados.full_name %></a> - <%= docs[0].publicacoes[0].node.caption %>
+                                  <a href="#"><%=docs.full_name%></a> - <%=dados.comentarios[0]%>
                               </h3>
                                 <div class="timeline-body">
-                                  <img src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="..." class="margin">
+                                  <img src="<%=dados.imagem240x240[0]%>" alt="..." class="margin">
                                 </div>
                           </div>
                       </li>
@@ -808,18 +812,18 @@
                 <!-- PUBLICAÇÃO 2 -->
                   <li class="time-label">
                       <span class="bg-red">
-                          <%= docs[0].publicacoes[1].node.date %>
+                          <%=dados.dataComentarios[1]%>
                       </span>
                 </li>
                 <li>
                     <i class="fa fa-camera bg-purple"></i>
                       <div class="timeline-item">
-                        <span class="time"><i class="fa fa-clock-o"></i><%= docs[0].publicacoes[1].node.date %></span>
+                        <span class="time"><i class="fa fa-clock-o"></i><%=dados.dataComentarios[1]%></span>
                           <h3 class="timeline-header">
-                              <a href="#"><%= docs[0].dados.full_name %></a> - <%= docs[0].publicacoes[1].node.caption %>
+                              <a href="#"><%=docs.full_name%></a> - <%=dados.comentarios[1]%>
                           </h3>
                             <div class="timeline-body">
-                              <img src="<%= docs[0].publicacoes[1].node.thumbnail_resources[1].src %>" alt="..." class="margin">
+                              <img src="<%=dados.imagem240x240[1]%>" alt="..." class="margin">
                             </div>
                       </div>
                   </li>
@@ -827,18 +831,18 @@
                   <!-- PUBLICAÇÃO 3 -->
                   <li class="time-label">
                       <span class="bg-red">
-                          <%= docs[0].publicacoes[2].node.date %>
+                          <%=dados.dataComentarios[2]%>
                       </span>
                 </li>
                 <li>
                     <i class="fa fa-camera bg-purple"></i>
                       <div class="timeline-item">
-                        <span class="time"><i class="fa fa-clock-o"></i><%= docs[0].publicacoes[2].node.date %></span>
+                        <span class="time"><i class="fa fa-clock-o"></i><%=dados.dataComentarios[2]%></span>
                           <h3 class="timeline-header">
-                              <a href="#"><%= docs[0].dados.full_name %></a> - <%= docs[0].publicacoes[2].node.caption %>
+                              <a href="#"><%=docs.full_name%></a> - <%=dados.comentarios[2]%>
                           </h3>
                             <div class="timeline-body">
-                              <img src="<%= docs[0].publicacoes[2].node.thumbnail_resources[1].src %>" alt="..." class="margin">
+                              <img src="<%=dados.imagem240x240[2]%>" alt="..." class="margin">
                             </div>
                       </div>
                   </li>
@@ -846,18 +850,18 @@
                   <!-- PUBLICAÇÃO 4 -->
                   <li class="time-label">
                       <span class="bg-red">
-                          <%= docs[0].publicacoes[3].node.date %>
+                          <%=dados.dataComentarios[3]%>
                       </span>
                 </li>
                 <li>
                     <i class="fa fa-camera bg-purple"></i>
                       <div class="timeline-item">
-                        <span class="time"><i class="fa fa-clock-o"></i><%= docs[0].publicacoes[3].node.date %></span>
+                        <span class="time"><i class="fa fa-clock-o"></i><%=dados.dataComentarios[3]%></span>
                           <h3 class="timeline-header">
-                              <a href="#"><%= docs[0].dados.full_name %></a> - <%= docs[0].publicacoes[3].node.caption %>
+                              <a href="#"><%=docs.full_name%></a> - <%=dados.comentarios[3]%>
                           </h3>
                             <div class="timeline-body">
-                              <img src="<%= docs[0].publicacoes[3].node.thumbnail_resources[1].src %>" alt="..." class="margin">
+                              <img src="<%=dados.imagem240x240[3]%>" alt="..." class="margin">
                             </div>
                       </div>
                   </li>
@@ -874,13 +878,13 @@
                     <div class="timeline-item">
                       <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
 
-                      <h3 class="timeline-header"><a href="#"><%= docs[0].dados.full_name %></a> publicou novas fotos</h3>
+                      <h3 class="timeline-header"><a href="#"><%=docs.full_name%></a> publicou novas fotos</h3>
 
                       <div class="timeline-body">
-                        <img src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="..." class="margin">
-                        <img src="<%= docs[0].publicacoes[1].node.thumbnail_resources[1].src %>" alt="..." class="margin">
-                        <img src="<%= docs[0].publicacoes[2].node.thumbnail_resources[1].src %>" alt="..." class="margin">
-                        <img src="<%= docs[0].publicacoes[3].node.thumbnail_resources[1].src %>" alt="..." class="margin">
+                        <img src="<%=dados.imagem240x240[0]%>" alt="..." class="margin">
+                        <img src="<%=dados.imagem240x240[1]%>" alt="..." class="margin">
+                        <img src="<%=dados.imagem240x240[2]%>" alt="..." class="margin">
+                        <img src="<%=dados.imagem240x240[3]%>" alt="..." class="margin">
                       </div>
                     </div>
                   </li>
@@ -1083,17 +1087,17 @@
                       <div class="box box-widget widget-user">
                         <!-- Add the bg color to the header using any of the bg-* classes -->
                         <!-- <div class="widget-user-header bg-aqua-active">
-                          <h3 class="widget-user-username"><%= docs[0].dados.full_name %></h3>
+                          <h3 class="widget-user-username"><%=docs.full_name%></h3>
                           <h5 class="widget-user-desc">Founder &amp; CEO</h5>
                         </div> -->
                         <!-- <div class="widget-user-image">
-                          <img class="img-circle" src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="User Avatar">
+                          <img class="img-circle" src="<%=dados.imagem240x240[0]%>" alt="User Avatar">
                         </div> -->
                         <div class="box-footer">
                           <div class="row">
                             <div class="col-sm-4 border-right">
                               <div class="description-block">
-                                <h5 class="description-header"><%= docs[0].dados.followed_by.count %></h5>
+                                <h5 class="description-header"><%=docs.followed_by.count%></h5>
                                 <span class="description-text">SEGUIDORES</span>
                               </div>
                           
@@ -1103,7 +1107,7 @@
                           
                             <div class="col-sm-4 border-right">
                               <div class="description-block">
-                                <h5 class="description-header"><%= docs[0].dados.follows.count %></h5>
+                                <h5 class="description-header"><%=docs.follows.count%></h5>
                                 <span class="description-text">SEGUINDO</span>
                               </div>
                           
@@ -1111,7 +1115,7 @@
                           
                             <div class="col-sm-4">
                               <div class="description-block">
-                                <h5 class="description-header"><%= docs[0].dados.media.count %></h5>
+                                <h5 class="description-header"><%=docs.media.count%></h5>
                                 <span class="description-text">PUBLICAÇÕES</span>
                               </div>
                           
@@ -1122,9 +1126,9 @@
                           <div class="row">
                               <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                  <h5 class="description-header"><%= postMaisCurtido.edge_media_preview_like.count %></h5>
+                                  <h5 class="description-header"><%=fotoMaisCurtida%></h5>
                                   <span class="description-text">FOTO MAIS CURTIDA</span><br>
-                                  <a href="https://www.instagram.com/p/<%=postMaisCurtido.shortcode%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><small>Ver Foto</small></a>
+                                  
                                 </div>
                             
                               </div>
@@ -1132,17 +1136,17 @@
                               
                                 <div class="col-sm-4">
                                   <div class="description-block">
-                                    <h5 class="description-header"><%=totalDeCurtidas%></h5>
-                                    <span class="description-text">TOTAL DE CURTIDAS</span>
+                                    <h5 class="description-header">2</h5>
+                                    <span class="description-text">FOTO COM MENOS CURTIDA</span>
                                   </div>
                                 </div>
                               
                             
                               <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                  <h5 class="description-header"><%= postMaisComentado.edge_media_to_comment.count %></h5>
+                                  <h5 class="description-header"><%=fotoMaisComentada%></h5>
                                   <span class="description-text">FOTO COM MAIS COMENTÁRIOS</span><br>
-                                  <a href="https://www.instagram.com/p/<%=postMaisComentado.shortcode%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><small>Ver Foto</small></a>
+                                 
                                 </div>
                               </div>
                             
@@ -1177,17 +1181,17 @@
                         <div class="box box-widget widget-user">
                           <!-- Add the bg color to the header using any of the bg-* classes -->
                           <!-- <div class="widget-user-header bg-aqua-active">
-                            <h3 class="widget-user-username"><%= docs[0].dados.full_name %></h3>
+                            <h3 class="widget-user-username"><%=docs.full_name%></h3>
                             <h5 class="widget-user-desc">Founder &amp; CEO</h5>
                           </div> -->
                           <!-- <div class="widget-user-image">
-                            <img class="img-circle" src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="User Avatar">
+                            <img class="img-circle" src="<%=dados.imagem240x240[0]%>" alt="User Avatar">
                           </div> -->
                           <div class="box-footer">
                             <div class="row">
                               <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                  <h5 class="description-header">2</h5>
+                                  <h5 class="description-header"><%=docs.followed_by.count%></h5>
                                   <span class="description-text">INSCRITOS</span>
                                 </div>
                             
@@ -1197,7 +1201,7 @@
                             
                               <div class="col-sm-4 border-right">
                                 <div class="description-block">
-                                  <h5 class="description-header">1</h5>
+                                  <h5 class="description-header"><%=docs.follows.count%></h5>
                                   <span class="description-text">VISUALIZAÇÕES</span>
                                 </div>
                             
@@ -1205,7 +1209,7 @@
                             
                               <div class="col-sm-4">
                                 <div class="description-block">
-                                  <h5 class="description-header">4</h5>
+                                  <h5 class="description-header"><%=docs.media.count%></h5>
                                   <span class="description-text">CURTIDAS</span>
                                 </div>
                             
