@@ -316,92 +316,11 @@ router.get('/teste', function(req, res) {
         return console.log(e); 
       }else{
 
-        let json = docs[0].dados;
-        let publicacoes = docs[0].publicacoes;
-        let objetivo20mil = 20000;
-        let objetivo50mil = 50000;
-        let objetivo100mil = 100000;
-        let objetivo1m = 1000000;
-
-        let semBiografia = "";
-        if(json.biography == null){
-          semBiografia = "Sem biografia cadastrada no perfil";
-        }else{
-          semBiografia = json.biography;
-        }
-
-        let semSite = "";
-        if(json.external_url == null){
-          semSite = "Sem site cadastrado no perfil";
-        }else{
-          semSite = json.external_url;
-        }
-
-
-        let segObjetivos = (json.followed_by.count * 100) / objetivo20mil;
-        if(segObjetivos >= 100){
-          segObjetivos = 100;
-        }else{
-          segObjetivos = parseFloat(Math.round(json.followed_by.count * 100) / objetivo20mil).toFixed(2);
-        }
-
-        let totalPosts = docs[0].dados.media.count;
-        //DESCOBRIR QUAL A FOTO MAIS CURTIDA.
-        let fotoMaisCurtida = 0;
-        let firstFoto =0;
-        let firstLink = "";
-        // let linkFotoMaisCurtida = "";
-        // for(let i=0; i <= totalPosts; i++){
-        //   firstFoto = docs[0].publicacoes[i].node.edge_media_preview_like.count;
-        //   // console.log("first foto: "+firstFoto);
-        //   // linkFotoMaisCurtida = posts[i].code;
-        //   // console.log("linkzao eita:" + linkFotoMaisCurtida);          
-        //   if(firstFoto >= fotoMaisCurtida){
-        //     fotoMaisCurtida = firstFoto;
-        //   }else{
-        //      firstFoto = fotoMaisCurtida;
-        //   }
-        //  };
-
-         //DESCOBRIR A FOTO COM MAIS COMENTÁRIOS
-        let fotoMaisComentada = 0;
-        console.log("+ comentada antes: ", fotoMaisComentada);
-        let firstComentario = 0;
-        let linkFotoMaisComentada = "";
-
-        let counter = -1;
-        let postMaisComentado = null;
-
-        for(let i=0; i < publicacoes.length;i++){
-          // console.log("i: ",i);
-          //firstComentario = publicacoes[0].node.edge_media_to_comment.count;
-          //console.log(JSON.stringify(publicacoes[i]));
-          // console.log("first comentario: ", firstComentario);
-          // if(firstComentario >= fotoMaisComentada){
-          //   fotoMaisComentada = firstComentario;
-          //   console.log("mais comentada if", fotoMaisComentada);
-          // }else{
-          //   firstComentario = fotoMaisComentada;
-          //   // console.log("mais comentada else", fotoMaisComentada);
-          // }
-          //  console.log("+ comentada depois: ", fotoMaisComentada);
-
-          if (publicacoes[i].node.edge_media_to_comment.count > counter) {
-            counter = publicacoes[i].node.edge_media_to_comment.count;
-            postMaisComentado = publicacoes[i].node;
-          }
-
-        }
-
-        console.log(postMaisComentado.edge_media_to_comment.count);
+        
 
         
         
-        res.render('index', { title: 'Lista de Clientes', docs: docs, 
-                                                          semBiografia, semSite, segObjetivos,objetivo20mil,
-                                                          postMaisComentado
-                                                        // fotoMaisCurtida,fotoMaisComentada 
-                                                      });      
+        res.render('index', { title: 'Lista de Clientes', docs: docs});      
       }
 
   })

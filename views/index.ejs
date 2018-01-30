@@ -6,73 +6,16 @@
   <body>
     
     <!-- PEGANDO AS LEGENDAS DAS PUBLICACOES -->
-    <em>Legendas:</em>
-    <%= docs[0].publicacoes[0].node.caption %> |
-    <%= docs[0].publicacoes[3].node.caption %>
-
-    <br>
-    <em>Usuario:</em> <%= docs[0].dados.username %> 
-
-    <br>
-    <em>Full name:</em> <%= docs[0].dados.full_name %> 
-
-    <br>
-    <em>Seguidores:</em> <%= docs[0].dados.followed_by.count %> <br>
-    <em>Seguindo:</em> <%= docs[0].dados.follows.count %> <br>
-    <em>Publicacoes:</em> <%= docs[0].dados.media.count %> <br>
-
-    <em>biografia:</em> <%= semBiografia %> <br>
-
-    <b>External url:</b><%=docs[0].dados.external_url%> <br>
-
-    <b>Site:</b> <%=semSite%>
-
-    <br>
-    <img src="<%= docs[0].dados.profile_pic_url_hd %>" alt="Smiley face" >
-    <br><br>
-
-    <img src=" <%= docs[0].publicacoes[0].node.thumbnail_resources[1].src %>" alt="Smiley face" >
-   <br>
-
-   <b>data comentario: </b> <%= docs[0].publicacoes[0].node.date %>
-    <br>
-
-    <b>comentario: </b> <%= docs[0].publicacoes[0].node.caption %>
-    <br>
-    
-    <b>code:</b> <%= docs[0].publicacoes[0].node.code %>
-
-    <h1>imagens</h1>
-
-    <img src=" <%= docs[0].publicacoes[0].node.thumbnail_src %>" alt="Smiley face" >
-    <img src=" <%= docs[0].publicacoes[1].node.thumbnail_src %>" alt="Smiley face" >
-    <img src=" <%= docs[0].publicacoes[2].node.thumbnail_src %>" alt="Smiley face" >
-
-    <h1>objetivos</h1>
-    <%=segObjetivos%> | <%=objetivo20mil%>
-
-    <h1>foto mais comentada</h1>
-    <%= postMaisComentado.edge_media_to_comment.count %> <br>
-    code: <%= postMaisComentado.shortcode %> <br>
- 
-
-
     <ul>
       <% for(let publicacao of docs[0].publicacoes) { %>
           <li>
-              <%= publicacao.node.edge_media_to_comment.count %>
+              <%= publicacao.isVideo %>
           </li>
         <% }%>
       </ul>
 
-      <h1>curtidas</h1>
-      <ul>
-        <% for(let publicacao of docs[0].publicacoes) { %>
-            <li>
-                <%= publicacao.node.edge_media_preview_like.count %>
-            </li>
-          <% }%>
-        </ul>
+  
+    
   </body>
 </html>
 
