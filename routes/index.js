@@ -10,7 +10,7 @@ router.get('/', function(req, res) {
         
         let json = docs[0].dados;
         let publicacoes = docs[0].publicacoes;
-        let totalPosts = docs[0].dados.media.count;
+        let totalPosts = docs[0].dados[0].qtdPublicacoes;
         let objetivo20mil = 20000;
         let objetivo50mil = 50000;
         let objetivo100mil = 100000;
@@ -18,139 +18,137 @@ router.get('/', function(req, res) {
         let counter = -1;
 
         //20.000 SEGUIDORES
-        let segObjetivos = (json.followed_by.count * 100) / objetivo20mil;
-        if(segObjetivos >= 100){
-          segObjetivos = 100;
-        }else{
-          segObjetivos = parseFloat(Math.round(json.followed_by.count * 100) / objetivo20mil).toFixed(2);
-        }
+        // let segObjetivos = (json.followed_by.count * 100) / objetivo20mil;
+        // if(segObjetivos >= 100){
+        //   segObjetivos = 100;
+        // }else{
+        //   segObjetivos = parseFloat(Math.round(json.followed_by.count * 100) / objetivo20mil).toFixed(2);
+        // }
 
-        let seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
-        if(seguidoresFaltantesObjetivo < 0){
-          seguidoresFaltantesObjetivo = "Objetivo Concluído";
-        }else{
-          seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
-        }
+        // let seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
+        // if(seguidoresFaltantesObjetivo < 0){
+        //   seguidoresFaltantesObjetivo = "Objetivo Concluído";
+        // }else{
+        //   seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
+        // }
 
         //50.000 SEGUIDORES
-        let segObjetivos50Mil = (json.followed_by.count * 100) / objetivo50mil;
-        if(segObjetivos50Mil > 100){
-          segObjetivos50Mil = 100;
-        }else{
-          segObjetivos50Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo50mil).toFixed(2);
-        }
+        // let segObjetivos50Mil = (json.followed_by.count * 100) / objetivo50mil;
+        // if(segObjetivos50Mil > 100){
+        //   segObjetivos50Mil = 100;
+        // }else{
+        //   segObjetivos50Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo50mil).toFixed(2);
+        // }
 
-        let seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
-        if(seguidoresFaltantesObjetivo50Mil < 0){
-          seguidoresFaltantesObjetivo50Mil = "Objetivo Concluído";
-        }else{
-          seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
-        }
+        // let seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
+        // if(seguidoresFaltantesObjetivo50Mil < 0){
+        //   seguidoresFaltantesObjetivo50Mil = "Objetivo Concluído";
+        // }else{
+        //   seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
+        // }
         
         //100.000 SEGUIDORES
-        let segObjetivos100Mil = (json.followed_by.count * 100) / objetivo100mil;
-        if(segObjetivos100Mil > 100){
-          segObjetivos100Mil = 100;
-        }else{
-          segObjetivos100Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo100mil).toFixed(2);
-        }
+        // let segObjetivos100Mil = (json.followed_by.count * 100) / objetivo100mil;
+        // if(segObjetivos100Mil > 100){
+        //   segObjetivos100Mil = 100;
+        // }else{
+        //   segObjetivos100Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo100mil).toFixed(2);
+        // }
 
-        let seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
-        if(seguidoresFaltantesObjetivo100Mil < 0){
-          seguidoresFaltantesObjetivo100Mil = "Objetivo Concluído";
-        }else{
-          seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
-        }
+        // let seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
+        // if(seguidoresFaltantesObjetivo100Mil < 0){
+        //   seguidoresFaltantesObjetivo100Mil = "Objetivo Concluído";
+        // }else{
+        //   seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
+        // }
         
         //1 MILHAO DE SEGUIDORES
-        let segObjetivos1m = (json.followed_by.count * 100) / objetivo1m;
-        if(segObjetivos1m > 100){
-          segObjetivos1m = 100;
-        }else{
-          segObjetivos1m =parseFloat(Math.round(json.followed_by.count * 100) / objetivo1m).toFixed(2);
-        }
+        // let segObjetivos1m = (json.followed_by.count * 100) / objetivo1m;
+        // if(segObjetivos1m > 100){
+        //   segObjetivos1m = 100;
+        // }else{
+        //   segObjetivos1m =parseFloat(Math.round(json.followed_by.count * 100) / objetivo1m).toFixed(2);
+        // }
 
-        let seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
-        if(seguidoresFaltantesObjetivo1m < 0){
-          seguidoresFaltantesObjetivo1m = "Objetivo Concluído";
-        }else{
-          seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
-        }
+        // let seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
+        // if(seguidoresFaltantesObjetivo1m < 0){
+        //   seguidoresFaltantesObjetivo1m = "Objetivo Concluído";
+        // }else{
+        //   seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
+        // }
 
         //Perfil sem biografia cadastrada.
-        let semBiografia = "";
-        if(json.biography == null){
-          semBiografia = "Sem biografia cadastrada no perfil";
-        }else{
-          semBiografia = json.biography;
-        }
+        // let semBiografia = "";
+        // if(json.biography == null){
+        //   semBiografia = "Sem biografia cadastrada no perfil";
+        // }else{
+        //   semBiografia = json.biography;
+        // }
 
         //Pefil sem site cadastrado.
-        let semSite = "";
-        if(json.external_url == null){
-          semSite = "Sem site cadastrado no perfil";
-        }else{
-          semSite = json.external_url;
-        }
+        // let semSite = "";
+        // if(json.external_url == null){
+        //   semSite = "Sem site cadastrado no perfil";
+        // }else{
+        //   semSite = json.external_url;
+        // }
 
         //Foto com mais curtidas
-        let postMaisCurtido = null;
-          for(let i=0; i < publicacoes.length;i++){
-            if (publicacoes[i].node.edge_media_preview_like.count > counter) {
-              counter = publicacoes[i].node.edge_media_preview_like.count;
-              postMaisCurtido = publicacoes[i].node;
-            }
-        }
+        // let postMaisCurtido = null;
+        //   for(let i=0; i < publicacoes.length;i++){
+        //     if (publicacoes[i].node.edge_media_preview_like.count > counter) {
+        //       counter = publicacoes[i].node.edge_media_preview_like.count;
+        //       postMaisCurtido = publicacoes[i].node;
+        //     }
+        // }
         
         //Foto com mais comentários
-        let postMaisComentado = null;
-          for(let i=0; i < publicacoes.length;i++){
-            if (publicacoes[i].node.edge_media_to_comment.count > counter) {
-              console.log("######################################################################");
-              counter = publicacoes[i].node.edge_media_to_comment.count;
-              console.log(publicacoes);
-              postMaisComentado = publicacoes[i].node;
-              console.log("######################################################################");
-            }
-        }
+        // let postMaisComentado = null;
+        //   for(let i=0; i < publicacoes.length;i++){
+        //     if (publicacoes[i].node.edge_media_to_comment.count > counter) {
+        //       counter = publicacoes[i].node.edge_media_to_comment.count;
+        //       console.log(publicacoes);
+        //       postMaisComentado = publicacoes[i].node;
+        //     }
+        // }
 
         //Total de curtidas
-        let totalDeCurtidas = 0;
-        for (let i = 0; i < publicacoes.length; i ++) {
-          totalDeCurtidas+=publicacoes[i].node.edge_media_preview_like.count;
-        }
+        // let totalDeCurtidas = 0;
+        // for (let i = 0; i < publicacoes.length; i ++) {
+        //   totalDeCurtidas+=publicacoes[i].node.edge_media_preview_like.count;
+        // }
 
         //Total de comentários
-        let totalDeComentarios = 0;
-        for (let i = 0; i < publicacoes.length; i ++) {
-          totalDeComentarios+=publicacoes[i].node.edge_media_to_comment.count;
-        }
+        // let totalDeComentarios = 0;
+        // for (let i = 0; i < publicacoes.length; i ++) {
+        //   totalDeComentarios+=publicacoes[i].node.edge_media_to_comment.count;
+        // }
 
         //Média de curtidas por foto
-        let mediaCurtidasPorFoto =  Number(totalDeCurtidas / totalPosts).toFixed(2);
+        // let mediaCurtidasPorFoto =  Number(totalDeCurtidas / totalPosts).toFixed(2);
        
         //Média de comentários por foto
-        let mediaComentarioPorFoto = Number(totalDeComentarios / totalPosts).toFixed(2);
+        // let mediaComentarioPorFoto = Number(totalDeComentarios / totalPosts).toFixed(2);
 
         //Data publicacao
-        let dataComentarios= null;
-        for (let i = 0; i < publicacoes.length; i ++) {
-          dataComentarios = moment(new Date(docs[0].publicacoes[i].node.date * 1000)).format('DD/MM/YYYY HH:mm:ss');
-        };
+        // let dataComentarios= null;
+        // for (let i = 0; i < publicacoes.length; i ++) {
+        //   dataComentarios = moment(new Date(docs[0].publicacoes[i].node.date * 1000)).format('DD/MM/YYYY HH:mm:ss');
+        // };
 
-        console.log("postMaisComentado: ",postMaisComentado);
-        console.log(postMaisComentado);
+        // console.log("postMaisComentado: ",postMaisComentado);
+        // console.log(postMaisComentado);
 
         res.render('profile', 
         { 
-          docs: docs,
-          semBiografia,semSite, 
-          segObjetivos, objetivo20mil, seguidoresFaltantesObjetivo, 
-          segObjetivos50Mil, objetivo50mil, seguidoresFaltantesObjetivo50Mil,
-          segObjetivos100Mil, objetivo100mil, seguidoresFaltantesObjetivo100Mil,
-          segObjetivos1m, objetivo1m, seguidoresFaltantesObjetivo1m,
-          postMaisComentado, postMaisCurtido, totalDeCurtidas, totalDeComentarios,
-          mediaCurtidasPorFoto, mediaComentarioPorFoto
+          docs: docs
+          // semBiografia,semSite, 
+          // segObjetivos, objetivo20mil, seguidoresFaltantesObjetivo, 
+          // segObjetivos50Mil, objetivo50mil, seguidoresFaltantesObjetivo50Mil,
+          // segObjetivos100Mil, objetivo100mil, seguidoresFaltantesObjetivo100Mil,
+          // segObjetivos1m, objetivo1m, seguidoresFaltantesObjetivo1m,
+          // postMaisComentado, postMaisCurtido, totalDeCurtidas, totalDeComentarios,
+          // mediaCurtidasPorFoto, mediaComentarioPorFoto
         });      
       }
 

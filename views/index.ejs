@@ -5,16 +5,23 @@
   </head>
   <body>
     
-    <!-- PEGANDO AS LEGENDAS DAS PUBLICACOES -->
-    <ul>
-      <% for(let publicacao of docs[0].publicacoes) { %>
-          <li>
-              <%= publicacao.isVideo %>
-          </li>
-        <% }%>
-      </ul>
-
-  
+    <h1>Dados</h1>
+    <em>Usuario:</em> <%= docs[0].dados[0].username %>  <br>
+    <em>Full name:</em> <%= docs[0].dados[0].nome %> <br>
+    <em>Seguidores:</em> <%= docs[0].dados[0].qtdSeguidores %> <br>
+    <em>Seguindo:</em> <%= docs[0].dados[0].qtdSeguindo %> <br>
+    <em>Publicacoes:</em> <%= docs[0].dados[0].qtdPublicacoes %> <br>
+    <img src="<%= docs[0].dados[0].fotoPerfil %>" alt="user image">
+    
+    <h1>Publicações</h1>
+    <!-- data comentario -->
+    <b>data comentario: </b> <%= docs[0].publicacoes[0].dataPublicacao %> <br>
+    <b>data comentario: </b> <%= docs[0].publicacoes[1].dataPublicacao %> <br>
+    <b>shortcode: </b> <%= docs[0].publicacoes[0].shortcode %> <br>
+    <b>comentario: </b> <%= docs[0].publicacoes[4].legenda %> <br>
+    <img src=" <%= docs[0].publicacoes[0].thumbnail %>" alt="Smiley face" >
+    <img src="<%= docs[0].publicacoes[0].thumbnail150x150 %>" alt="Product Image">
+    
     
   </body>
 </html>
