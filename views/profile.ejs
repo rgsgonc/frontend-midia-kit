@@ -507,7 +507,7 @@
                      <div class="box-body">
                         <strong><i class="fa fa-book margin-r-5"></i> Biografia</strong>
                         <p class="text-muted">
-                           <!-- semBiografia -->
+                          <%=docs[0].dados[0].biografia%>
                         </p>
                         <hr>
                         <strong><i class="fa fa-chrome" aria-hidden="true"></i> Site</strong>
@@ -1005,33 +1005,33 @@
                         <!-- 20.000 SEGUIDORES -->
                         <tr>
                         <td align="center"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></td>
-                        <td align="center">objetivo20mil K</td>
+                        <td align="center"><%=objetivo20mil%> K</td>
                         <td>Seguidores</td>
                         <td>
                         <div class="progress progress-sm active">
-                        <div class="progress-bar progress-bar-success progress-bar-striped" style="width: segObjetivos "></div> 
+                        <div class="progress-bar progress-bar-success progress-bar-striped" style="width:<%= segObjetivos %>%"></div> 
                         </div>
                         </td>
-                        <td><span class="badge bg-green">segObjetivos%</span></td>
-                        <td><span class="badge bg-red">seguidoresFaltantesObjetivo</span></td>
+                        <td><span class="badge bg-green"><%=segObjetivos%></span></td>
+                        <td><span class="badge bg-red"><%=seguidoresFaltantesObjetivo%></span></td>
                         </tr>
                         <!-- 50.000 SEGUIDORES -->
                         <tr>
                         <td align="center"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></td>
-                        <td align="center">objetivo50mil K</td>
+                        <td align="center"><%=objetivo20mil%> K</td>
                         <td>Seguidores</td>
                         <td>
                         <div class="progress progress-sm active">
                         <div class="progress-bar progress-bar-success progress-bar-striped" style="width: segObjetivos50Mil "></div>
                         </div>
                         </td>
-                        <td><span class="badge bg-green">segObjetivos50Mil%</span></td>
-                        <td><span class="badge bg-red">seguidoresFaltantesObjetivo50Mi></span></td>
+                        <td><span class="badge bg-green">segObjetivos50Mil</span></td>
+                        <td><span class="badge bg-red">seguidoresFaltantesObjetivo50Mil</span></td>
                         </tr>
                         <!-- 100.000 SEGUIDORES -->
                         <tr>
                         <td align="center"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></td>
-                        <td align="center">objetivo100mil K</td>
+                        <td align="center"><%=objetivo100mil%> K</td>
                         <td>Seguidores</td>
                         <td>
                         <div class="progress progress-sm active">

@@ -18,72 +18,72 @@ router.get('/', function(req, res) {
         let counter = -1;
 
         //20.000 SEGUIDORES
-        // let segObjetivos = (json.followed_by.count * 100) / objetivo20mil;
-        // if(segObjetivos >= 100){
-        //   segObjetivos = 100;
-        // }else{
-        //   segObjetivos = parseFloat(Math.round(json.followed_by.count * 100) / objetivo20mil).toFixed(2);
-        // }
+        let segObjetivos = (totalPosts * 100) / objetivo20mil;
+        if(segObjetivos >= 100){
+          segObjetivos = 100;
+        }else{
+          segObjetivos = parseFloat(Math.round(totalPosts * 100) / objetivo20mil).toFixed(2);
+        }
 
-        // let seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
-        // if(seguidoresFaltantesObjetivo < 0){
-        //   seguidoresFaltantesObjetivo = "Objetivo Concluído";
-        // }else{
-        //   seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
-        // }
+        let seguidoresFaltantesObjetivo = objetivo20mil - totalPosts;
+          if(seguidoresFaltantesObjetivo < 0){
+            seguidoresFaltantesObjetivo = "Objetivo Concluído";
+          }else{
+            seguidoresFaltantesObjetivo = objetivo20mil - totalPosts;
+        }
 
         //50.000 SEGUIDORES
-        // let segObjetivos50Mil = (json.followed_by.count * 100) / objetivo50mil;
+        //let segObjetivos50Mil = (totalPosts * 100) / objetivo50mil;
         // if(segObjetivos50Mil > 100){
-        //   segObjetivos50Mil = 100;
-        // }else{
-        //   segObjetivos50Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo50mil).toFixed(2);
-        // }
+          // segObjetivos50Mil = 100;
+         //}else{
+           //segObjetivos50Mil =parseFloat(Math.round(totalPosts * 100) / objetivo50mil).toFixed(2);
+         //}
 
-        // let seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
-        // if(seguidoresFaltantesObjetivo50Mil < 0){
-        //   seguidoresFaltantesObjetivo50Mil = "Objetivo Concluído";
-        // }else{
-        //   seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
+         //let seguidoresFaltantesObjetivo50Mil = objetivo50mil - totalPosts;
+         //if(seguidoresFaltantesObjetivo50Mil < 0){
+           //seguidoresFaltantesObjetivo50Mil = "Objetivo Concluído";
+         //}else{
+           //seguidoresFaltantesObjetivo50Mil = objetivo50mil - totalPosts;
         // }
         
         //100.000 SEGUIDORES
-        // let segObjetivos100Mil = (json.followed_by.count * 100) / objetivo100mil;
-        // if(segObjetivos100Mil > 100){
-        //   segObjetivos100Mil = 100;
-        // }else{
-        //   segObjetivos100Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo100mil).toFixed(2);
-        // }
+         let segObjetivos100Mil = (totalPosts * 100) / objetivo100mil;
+         if(segObjetivos100Mil > 100){
+           segObjetivos100Mil = 100;
+         }else{
+           segObjetivos100Mil =parseFloat(Math.round(totalPosts * 100) / objetivo100mil).toFixed(2);
+         }
 
-        // let seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
-        // if(seguidoresFaltantesObjetivo100Mil < 0){
-        //   seguidoresFaltantesObjetivo100Mil = "Objetivo Concluído";
-        // }else{
-        //   seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
-        // }
+         let seguidoresFaltantesObjetivo100Mil = objetivo100mil - totalPosts;
+         if(seguidoresFaltantesObjetivo100Mil < 0){
+           seguidoresFaltantesObjetivo100Mil = "Objetivo Concluído";
+         }else{
+           seguidoresFaltantesObjetivo100Mil = objetivo100mil - totalPosts;
+         }
         
         //1 MILHAO DE SEGUIDORES
-        // let segObjetivos1m = (json.followed_by.count * 100) / objetivo1m;
-        // if(segObjetivos1m > 100){
-        //   segObjetivos1m = 100;
-        // }else{
-        //   segObjetivos1m =parseFloat(Math.round(json.followed_by.count * 100) / objetivo1m).toFixed(2);
-        // }
+         let segObjetivos1m = (totalPosts * 100) / objetivo1m;
+         if(segObjetivos1m > 100){
+           segObjetivos1m = 100;
+         }else{
+           segObjetivos1m =parseFloat(Math.round(totalPosts * 100) / objetivo1m).toFixed(2);
+         }
 
-        // let seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
-        // if(seguidoresFaltantesObjetivo1m < 0){
-        //   seguidoresFaltantesObjetivo1m = "Objetivo Concluído";
-        // }else{
-        //   seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
-        // }
+         let seguidoresFaltantesObjetivo1m = objetivo1m - totalPosts;
+         if(seguidoresFaltantesObjetivo1m < 0){
+           seguidoresFaltantesObjetivo1m = "Objetivo Concluído";
+         }else{
+           seguidoresFaltantesObjetivo1m = objetivo1m - totalPosts;
+         }
 
         //Perfil sem biografia cadastrada.
-        // let semBiografia = "";
-        // if(json.biography == null){
-        //   semBiografia = "Sem biografia cadastrada no perfil";
-        // }else{
-        //   semBiografia = json.biography;
-        // }
+        let semBiografia = "";
+        if(docs[0].dados[0].biografia == null){ 
+          semBiografia = "Sem biografia cadastrada no perfil";
+        }else{
+          semBiografia = docs[0].dados[0].biografia;
+        }
 
         //Pefil sem site cadastrado.
         // let semSite = "";
@@ -141,14 +141,14 @@ router.get('/', function(req, res) {
 
         res.render('profile', 
         { 
-          docs: docs
-          // semBiografia,semSite, 
-          // segObjetivos, objetivo20mil, seguidoresFaltantesObjetivo, 
-          // segObjetivos50Mil, objetivo50mil, seguidoresFaltantesObjetivo50Mil,
-          // segObjetivos100Mil, objetivo100mil, seguidoresFaltantesObjetivo100Mil,
-          // segObjetivos1m, objetivo1m, seguidoresFaltantesObjetivo1m,
+          docs: docs,
+          semBiografia,
+          segObjetivos, objetivo20mil, seguidoresFaltantesObjetivo,
+          
+          segObjetivos100Mil, objetivo100mil, seguidoresFaltantesObjetivo100Mil,
+          segObjetivos1m, objetivo1m, seguidoresFaltantesObjetivo1m,
           // postMaisComentado, postMaisCurtido, totalDeCurtidas, totalDeComentarios,
-          // mediaCurtidasPorFoto, mediaComentarioPorFoto
+          // mediaCurtidasPorFoto, mediaComentarioPorFoto, semSite, 
         });      
       }
 
@@ -163,7 +163,7 @@ router.get('/ola', function(req, res) {
         
         let json = docs[0].dados;
         let publicacoes = docs[0].publicacoes;
-        let totalPosts = docs[0].dados.media.count;
+        let totalPosts = docs[0].dados[0].qtdPublicacoes;
         let objetivo20mil = 20000;
         let objetivo50mil = 50000;
         let objetivo100mil = 100000;
@@ -171,63 +171,63 @@ router.get('/ola', function(req, res) {
         let counter = -1;
 
         //20.000 SEGUIDORES
-        let segObjetivos = (json.followed_by.count * 100) / objetivo20mil;
+        let segObjetivos = (totalPosts * 100) / objetivo20mil;
         if(segObjetivos >= 100){
           segObjetivos = 100;
         }else{
-          segObjetivos = parseFloat(Math.round(json.followed_by.count * 100) / objetivo20mil).toFixed(2);
+          segObjetivos = parseFloat(Math.round(totalPosts * 100) / objetivo20mil).toFixed(2);
         }
 
-        let seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
+        let seguidoresFaltantesObjetivo = objetivo20mil - totalPosts;
         if(seguidoresFaltantesObjetivo < 0){
           seguidoresFaltantesObjetivo = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
+          seguidoresFaltantesObjetivo = objetivo20mil - totalPosts;
         }
 
         //50.000 SEGUIDORES
-        let segObjetivos50Mil = (json.followed_by.count * 100) / objetivo50mil;
+        let segObjetivos50Mil = (totalPosts * 100) / objetivo50mil;
         if(segObjetivos50Mil > 100){
           segObjetivos50Mil = 100;
         }else{
-          segObjetivos50Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo50mil).toFixed(2);
+          segObjetivos50Mil =parseFloat(Math.round(totalPosts * 100) / objetivo50mil).toFixed(2);
         }
 
-        let seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
+        let seguidoresFaltantesObjetivo50Mil = objetivo50mil - totalPosts;
         if(seguidoresFaltantesObjetivo50Mil < 0){
           seguidoresFaltantesObjetivo50Mil = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
+          seguidoresFaltantesObjetivo50Mil = objetivo50mil - totalPosts;
         }
         
         //100.000 SEGUIDORES
-        let segObjetivos100Mil = (json.followed_by.count * 100) / objetivo100mil;
+        let segObjetivos100Mil = (totalPosts * 100) / objetivo100mil;
         if(segObjetivos100Mil > 100){
           segObjetivos100Mil = 100;
         }else{
-          segObjetivos100Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo100mil).toFixed(2);
+          segObjetivos100Mil =parseFloat(Math.round(totalPosts * 100) / objetivo100mil).toFixed(2);
         }
 
-        let seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
+        let seguidoresFaltantesObjetivo100Mil = objetivo100mil - totalPosts;
         if(seguidoresFaltantesObjetivo100Mil < 0){
           seguidoresFaltantesObjetivo100Mil = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
+          seguidoresFaltantesObjetivo100Mil = objetivo100mil - totalPosts;
         }
         
         //1 MILHAO DE SEGUIDORES
-        let segObjetivos1m = (json.followed_by.count * 100) / objetivo1m;
+        let segObjetivos1m = (totalPosts * 100) / objetivo1m;
         if(segObjetivos1m > 100){
           segObjetivos1m = 100;
         }else{
-          segObjetivos1m =parseFloat(Math.round(json.followed_by.count * 100) / objetivo1m).toFixed(2);
+          segObjetivos1m =parseFloat(Math.round(totalPosts * 100) / objetivo1m).toFixed(2);
         }
 
-        let seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
+        let seguidoresFaltantesObjetivo1m = objetivo1m - totalPosts;
         if(seguidoresFaltantesObjetivo1m < 0){
           seguidoresFaltantesObjetivo1m = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
+          seguidoresFaltantesObjetivo1m = objetivo1m - totalPosts;
         }
 
         //Perfil sem biografia cadastrada.
@@ -313,11 +313,6 @@ router.get('/teste', function(req, res) {
       if(e) { 
         return console.log(e); 
       }else{
-
-        
-
-        
-        
         res.render('index', { title: 'Lista de Clientes', docs: docs});      
       }
 
@@ -447,60 +442,60 @@ router.get('/ultimo', function(req, res) {
         // Objetivos do Intagram.
         // Porcentagem faltante para conseguir o numero de seguidores.
         
-        let segObjetivos = (json.followed_by.count * 100) / objetivo20mil;
+        let segObjetivos = (totalPosts * 100) / objetivo20mil;
         if(segObjetivos >= 100){
           segObjetivos = 100;
         }else{
-          segObjetivos = parseFloat(Math.round(json.followed_by.count * 100) / objetivo20mil).toFixed(2);
+          segObjetivos = parseFloat(Math.round(totalPosts * 100) / objetivo20mil).toFixed(2);
         }
 
-        let segObjetivos50Mil = (json.followed_by.count * 100) / objetivo50mil;
+        let segObjetivos50Mil = (totalPosts * 100) / objetivo50mil;
         if(segObjetivos50Mil > 100){
           segObjetivos50Mil = 100;
         }else{
-          segObjetivos50Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo50mil).toFixed(2);
+          segObjetivos50Mil =parseFloat(Math.round(totalPosts * 100) / objetivo50mil).toFixed(2);
         }
         
-        let segObjetivos100Mil = (json.followed_by.count * 100) / objetivo100mil;
+        let segObjetivos100Mil = (totalPosts * 100) / objetivo100mil;
         if(segObjetivos100Mil > 100){
           segObjetivos100Mil = 100;
         }else{
-          segObjetivos100Mil =parseFloat(Math.round(json.followed_by.count * 100) / objetivo100mil).toFixed(2);
+          segObjetivos100Mil =parseFloat(Math.round(totalPosts * 100) / objetivo100mil).toFixed(2);
         }
         
-        let segObjetivos1m = (json.followed_by.count * 100) / objetivo1m;
+        let segObjetivos1m = (totalPosts * 100) / objetivo1m;
         if(segObjetivos1m > 100){
           segObjetivos1m = 100;
         }else{
-          segObjetivos1m =parseFloat(Math.round(json.followed_by.count * 100) / objetivo1m).toFixed(2);
+          segObjetivos1m =parseFloat(Math.round(totalPosts * 100) / objetivo1m).toFixed(2);
         }
         //Quantidade de seguidores que falta para alcançar o objetivo.
-        let seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
+        let seguidoresFaltantesObjetivo = objetivo20mil - totalPosts;
         if(seguidoresFaltantesObjetivo < 0){
           seguidoresFaltantesObjetivo = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo = objetivo20mil - json.followed_by.count;
+          seguidoresFaltantesObjetivo = objetivo20mil - totalPosts;
         }
 
-        let seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
+        let seguidoresFaltantesObjetivo50Mil = objetivo50mil - totalPosts;
         if(seguidoresFaltantesObjetivo50Mil < 0){
           seguidoresFaltantesObjetivo50Mil = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo50Mil = objetivo50mil - json.followed_by.count;
+          seguidoresFaltantesObjetivo50Mil = objetivo50mil - totalPosts;
         }
 
-        let seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
+        let seguidoresFaltantesObjetivo100Mil = objetivo100mil - totalPosts;
         if(seguidoresFaltantesObjetivo100Mil < 0){
           seguidoresFaltantesObjetivo100Mil = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo100Mil = objetivo100mil - json.followed_by.count;
+          seguidoresFaltantesObjetivo100Mil = objetivo100mil - totalPosts;
         }
 
-        let seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
+        let seguidoresFaltantesObjetivo1m = objetivo1m - totalPosts;
         if(seguidoresFaltantesObjetivo1m < 0){
           seguidoresFaltantesObjetivo1m = "Objetivo Concluído";
         }else{
-          seguidoresFaltantesObjetivo1m = objetivo1m - json.followed_by.count;
+          seguidoresFaltantesObjetivo1m = objetivo1m - totalPosts;
         }
 
         let semSite = "";

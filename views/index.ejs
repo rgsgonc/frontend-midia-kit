@@ -7,6 +7,7 @@
     
     <h1>Dados</h1>
     <em>Usuario:</em> <%= docs[0].dados[0].username %>  <br>
+    <em>biografia:</em> <%= docs[0].dados[0].biografia %>  <br>
     <em>Full name:</em> <%= docs[0].dados[0].nome %> <br>
     <em>Seguidores:</em> <%= docs[0].dados[0].qtdSeguidores %> <br>
     <em>Seguindo:</em> <%= docs[0].dados[0].qtdSeguindo %> <br>
@@ -17,8 +18,9 @@
     <!-- data comentario -->
     <b>data comentario: </b> <%= docs[0].publicacoes[0].dataPublicacao %> <br>
     <b>data comentario: </b> <%= docs[0].publicacoes[1].dataPublicacao %> <br>
-    <b>shortcode: </b> <%= docs[0].publicacoes[0].shortcode %> <br>
+    <b>shortcode: </b> <%=docs[0].publicacoes[0].shortcode%> <br>
     <b>comentario: </b> <%= docs[0].publicacoes[4].legenda %> <br>
+    <b>like: </b> <%= docs[0].publicacoes[4].qtdLikes %> <br>
     <img src=" <%= docs[0].publicacoes[0].thumbnail %>" alt="Smiley face" >
     <img src="<%= docs[0].publicacoes[0].thumbnail150x150 %>" alt="Product Image">
     

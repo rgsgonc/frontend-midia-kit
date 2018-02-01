@@ -527,7 +527,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Seguidores</span>
-              <span class="info-box-number"><%= docs[0].dados.followed_by.count %></span>
+              <span class="info-box-number"><%=docs[0].dados[0].qtdSeguidores%></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -540,7 +540,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Seguindo</span>
-              <span class="info-box-number"><%= docs[0].dados.follows.count %></span>
+              <span class="info-box-number"><%=docs[0].dados[0].qtdSeguindo%></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -557,7 +557,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Publicações</span>
-              <span class="info-box-number"><%= docs[0].dados.media.count %></span>
+              <span class="info-box-number"><%=docs[0].dados[0].qtdPublicacoes%></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -570,8 +570,8 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Foto mais curtida</span>
-              <span class="info-box-number"><%= postMaisCurtido.edge_media_preview_like.count %></span>
-              <a href="https://www.instagram.com/p/<%=postMaisCurtido.shortcode%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><small>Ver Foto</small></a>
+              <span class="info-box-number">2</span>
+              <a href="#" target="_blank"><small>Ver Foto</small></a>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -961,43 +961,43 @@
                 <div class="box-body no-padding">
                   <ul class="users-list clearfix">
                     <li>
-                      <img src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[0].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[0].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[0].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">Today</span>
                     </li>
                     <li>
-                      <img src="<%= docs[0].publicacoes[1].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[1].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[1].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[1].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">Yesterday</span>
                     </li>
                     <li>
-                      <img src="<%= docs[0].publicacoes[2].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[2].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[2].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[2].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">12 Jan</span>
                     </li>
                     <li>
-                      <img src="<%= docs[0].publicacoes[3].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[3].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[3].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[3].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">12 Jan</span>
                     </li>
                     <li>
-                      <img src="<%= docs[0].publicacoes[4].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[4].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[4].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[4].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">13 Jan</span>
                     </li>
                     <li>
-                      <img src="<%= docs[0].publicacoes[5].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[5].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[5].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[5].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">14 Jan</span>
                     </li>
                     <li>
-                      <img src="<%= docs[0].publicacoes[6].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[6].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[6].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[6].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">15 Jan</span>
                     </li>
                     <li>
-                      <img src="<%= docs[0].publicacoes[7].node.thumbnail_resources[0].src %>" alt="User Image">
-                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[7].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank"><%= docs[0].dados.full_name %></a>
+                      <img src="<%= docs[0].publicacoes[7].thumbnail150x150 %>" alt="User Image">
+                      <a class="users-list-name" href="https://www.instagram.com/p/<%=docs[0].publicacoes[7].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank"><%=docs[0].dados[0].nome%></a>
                       <span class="users-list-date">15 Jan</span>
                     </li>
                   </ul>
@@ -1077,7 +1077,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Total de comentários no Instagram</span>
-              <span class="info-box-number"><%= totalDeComentarios %></span>
+              <span class="info-box-number">4</span>
 
               <!-- <div class="progress">
                 <div class="progress-bar" style="width: 50%"></div>
@@ -1094,7 +1094,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Total de curtidas no instagram</span>
-              <span class="info-box-number"><%=totalDeCurtidas%></span>
+              <span class="info-box-number">4</span>
 
               <!-- <div class="progress">
                 <div class="progress-bar" style="width: 20%"></div>
@@ -1111,7 +1111,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Média de curtidas no Instagram</span>
-              <span class="info-box-number"><%= mediaCurtidasPorFoto %></span>
+              <span class="info-box-number">6</span>
 
               <!-- <div class="progress">
                 <div class="progress-bar" style="width: 70%"></div>
@@ -1128,7 +1128,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Média de comentário no instagram</span>
-              <span class="info-box-number"><%= mediaComentarioPorFoto %></span>
+              <span class="info-box-number">5</span>
 
               <!-- <div class="progress">
                 <div class="progress-bar" style="width: 40%"></div>
@@ -1199,52 +1199,52 @@
               <ul class="products-list product-list-in-box">
                 <li class="item">
                   <div class="product-img">
-                      <img src="<%= docs[0].publicacoes[0].node.thumbnail_resources[0].src %>" alt="User Image">
+                      <img src="<%= docs[0].publicacoes[0].thumbnail150x150 %>" alt="User Image">
                   </div>
                   <div class="product-info">
-                    <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[0].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank" class="product-title"><%= docs[0].dados.full_name %>
+                    <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[0].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank" class="product-title"><%=docs[0].dados[0].nome%>
                       <!-- <span class="label label-warning pull-right">$1800</span></a> -->
                     <span class="product-description">
-                        <%= docs[0].publicacoes[0].node.caption %>
+                      <%= docs[0].publicacoes[0].legenda %>
                         </span>
                   </div>
                 </li>
                 <!-- /.item -->
                 <li class="item">
                   <div class="product-img">
-                      <img src="<%= docs[0].publicacoes[1].node.thumbnail_resources[0].src %>" alt="User Image">
+                      <img src="<%= docs[0].publicacoes[2].thumbnail150x150 %>" alt="User Image">
                   </div>
                   <div class="product-info">
-                      <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[1].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank" class="product-title"><%= docs[0].dados.full_name %>
+                      <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[1].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank" class="product-title"><%=docs[0].dados[0].nome%>
                       <!-- <span class="label label-info pull-right">$700</span></a> -->
                     <span class="product-description">
-                        <%= docs[0].publicacoes[1].node.caption %>
+                      <%= docs[0].publicacoes[1].legenda %>
                         </span>
                   </div>
                 </li>
                 <!-- /.item -->
                 <li class="item">
                   <div class="product-img">
-                      <img src="<%= docs[0].publicacoes[2].node.thumbnail_resources[0].src %>" alt="User Image">
+                      <img src="<%= docs[0].publicacoes[3].thumbnail150x150 %>" alt="User Image">
                   </div>
                   <div class="product-info">
-                      <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[2].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank" class="product-title"><%= docs[0].dados.full_name %>
+                      <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[2].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank" class="product-title"><%=docs[0].dados[0].nome%>
                       <!-- <span class="label label-danger pull-right">$350</span></a> -->
                     <span class="product-description">
-                        <%= docs[0].publicacoes[2].node.caption %>
+                      <%= docs[0].publicacoes[2].legenda %>
                         </span>
                   </div>
                 </li>
                 <!-- /.item -->
                 <li class="item">
                   <div class="product-img">
-                      <img src="<%= docs[0].publicacoes[3].node.thumbnail_resources[0].src %>" alt="User Image">
+                      <img src="<%= docs[0].publicacoes[4].thumbnail150x150 %>" alt="User Image">
                   </div>
                   <div class="product-info">
-                      <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[3].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank" class="product-title"><%= docs[0].dados.full_name %>
+                      <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[3].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank" class="product-title"><%=docs[0].dados[0].nome%>
                       <!-- <span class="label label-success pull-right">$399</span></a> -->
                     <span class="product-description">
-                        <%= docs[0].publicacoes[3].node.caption %>
+                      <%= docs[0].publicacoes[3].legenda %>
                         </span>
                   </div>
                 </li>
@@ -1252,13 +1252,13 @@
                 <!-- /.item -->
                 <li class="item">
                     <div class="product-img">
-                        <img src="<%= docs[0].publicacoes[4].node.thumbnail_resources[0].src %>" alt="User Image">
+                        <img src="<%= docs[0].publicacoes[5].thumbnail150x150 %>" alt="User Image">
                     </div>
                     <div class="product-info">
-                        <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[4].node.code%>/?taken-by=<%=docs[0].dados.username%>" target="_blank" class="product-title"><%= docs[0].dados.full_name %>
+                        <a href="https://www.instagram.com/p/<%=docs[0].publicacoes[4].shortcode%>/?taken-by=<%=docs[0].dados[0].username%>" target="_blank" class="product-title"><%=docs[0].dados[0].nome%>
                         <!-- <span class="label label-success pull-right">$399</span></a> -->
                       <span class="product-description">
-                          <%= docs[0].publicacoes[4].node.caption %>
+                        <%= docs[0].publicacoes[4].legenda %>
                           </span>
                     </div>
                   </li>
@@ -1283,10 +1283,9 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.4.0
+      <b>Versão </b> 1.0.0
     </div>
-    <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-    reserved.
+    <strong>Copyright &copy; 2017 <a href="http://www.ativarinformatica.com.br">Ativar Informática</a>.</strong> Todos os direitos reservados.
   </footer>
 
   <!-- Control Sidebar -->
